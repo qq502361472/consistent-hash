@@ -3,11 +3,10 @@ package com.hjrpc;
 import java.util.*;
 
 public class ConsistentHash {
-
     // 虚拟节点数，用户指定
     private int virtualNum = 100;
     // 物理节点集合
-    private final List<String> realNodes = new ArrayList<>();
+    private final Set<String> realNodes = new HashSet<>();
     // 物理节点与虚拟节点的对应关系存储(方便移除服务器)
     private final Map<String, List<Integer>> real2VirtualMap = new HashMap<>();
     // 排序存储结构红黑树，key是虚拟节点的hash值，value是物理节点
